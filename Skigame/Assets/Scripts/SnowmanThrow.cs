@@ -28,11 +28,12 @@ public class SnowmanThrow : MonoBehaviour
             GameObject tempSnowBall = Instantiate(snowBall,transform.position,transform.rotation);
             Rigidbody tempRb = tempSnowBall.GetComponent<Rigidbody>();
             Vector3 targetDirection =  Vector3.Normalize(target.transform.position-transform.position);
+            Destroy(tempSnowBall, 2f);
             
             //Add a small throw angle
             targetDirection += new Vector3(0, 0.33f, 0);
             tempRb.AddForce(targetDirection * throwSpeed);
-            Invoke("ThrowOver", 0.1f);
+            Invoke("ThrowOver", 0.2f);
         }
 
     }
